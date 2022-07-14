@@ -17,21 +17,55 @@
 	/* opacity: attr(data-reference-opacity); not supported */
 	transition: opacity 0.5s;
 }
-.compare-reference[data-reference-opacity="0"]::after { opacity: 0; }
-.compare-reference[data-reference-opacity="0.1"]::after { opacity: 0.1; }
-.compare-reference[data-reference-opacity="0.2"]::after { opacity: 0.2; }
-.compare-reference[data-reference-opacity="0.3"]::after { opacity: 0.3; }
-.compare-reference[data-reference-opacity="0.4"]::after { opacity: 0.4; }
-.compare-reference[data-reference-opacity="0.5"]::after { opacity: 0.5; }
-.compare-reference[data-reference-opacity="0.6"]::after { opacity: 0.6; }
-.compare-reference[data-reference-opacity="0.7"]::after { opacity: 0.7; }
-.compare-reference[data-reference-opacity="0.8"]::after { opacity: 0.8; }
-.compare-reference[data-reference-opacity="0.9"]::after { opacity: 0.9; }
-.compare-reference[data-reference-opacity="1"]::after { opacity: 1; }
+
+.compare-reference[data-reference-opacity="0"]::after {
+	opacity: 0;
+}
+
+.compare-reference[data-reference-opacity="0.1"]::after {
+	opacity: 0.1;
+}
+
+.compare-reference[data-reference-opacity="0.2"]::after {
+	opacity: 0.2;
+}
+
+.compare-reference[data-reference-opacity="0.3"]::after {
+	opacity: 0.3;
+}
+
+.compare-reference[data-reference-opacity="0.4"]::after {
+	opacity: 0.4;
+}
+
+.compare-reference[data-reference-opacity="0.5"]::after {
+	opacity: 0.5;
+}
+
+.compare-reference[data-reference-opacity="0.6"]::after {
+	opacity: 0.6;
+}
+
+.compare-reference[data-reference-opacity="0.7"]::after {
+	opacity: 0.7;
+}
+
+.compare-reference[data-reference-opacity="0.8"]::after {
+	opacity: 0.8;
+}
+
+.compare-reference[data-reference-opacity="0.9"]::after {
+	opacity: 0.9;
+}
+
+.compare-reference[data-reference-opacity="1"]::after {
+	opacity: 1;
+}
 
 .compare-reference-tool-windows::after {
 	content: url("../../images/mspaint-win98-reference-tool-windows.png");
 }
+
 .compare-reference {
 	width: calc(567px - 4px - 4px);
 	height: calc(402px - 23px - 4px);
@@ -41,11 +75,13 @@
 .jspaint {
 	background: var(--ButtonFace);
 }
+
 body,
 .canvas-area {
 	background: var(--AppWorkspace);
 }
-.canvas-area > canvas {
+
+.canvas-area>canvas {
 	background: var(--checker);
 	/* 16px is a common grid size, but that gives 8px grid cells, and our max zoom is 8x */
 	/*background-size: 16px;*/
@@ -54,14 +90,19 @@ body,
 
 /* Show images as pixelated if at pixel-perfect scales. */
 /* WET for vendor prefixes (for Safari) */
-@media (resolution: 1x), (resolution: 2x), (min-resolution: 3x) {
+@media (resolution: 1x),
+(resolution: 2x),
+(min-resolution: 3x) {
 	* {
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
 	}
 }
-@media (-webkit-device-pixel-ratio: 1), (-webkit-device-pixel-ratio: 2), (-webkit-device-pixel-ratio: 3) {
+
+@media (-webkit-device-pixel-ratio: 1),
+(-webkit-device-pixel-ratio: 2),
+(-webkit-device-pixel-ratio: 3) {
 	* {
 		image-rendering: -moz-crisp-edges;
 		image-rendering: crisp-edges;
@@ -75,6 +116,7 @@ body,
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
 }
+
 .thumbnail-img {
 	/* these scale down, so nearest neighbor scaling looks bad */
 	image-rendering: auto;
@@ -91,13 +133,17 @@ body,
 	outline: 1px dashed black;
 	box-shadow: 0 0 0 1px white;
 }
+
 .canvas-area .handle {
 	background: var(--Hilight);
 }
+
 .canvas-area .useless-handle {
-	background: var(--HilightText); /* @TODO: --ButtonHilight? --Window? */
+	background: var(--HilightText);
+	/* @TODO: --ButtonHilight? --Window? */
 	box-shadow: 1px 1px 0 var(--Hilight) inset;
 }
+
 .resize-ghost {
 	/* this isn't quite the right inversion effect, but I think it's the best I can do;
 	white makes it invisible over the classic theme's dark gray background;
@@ -108,11 +154,11 @@ body,
 
 .status-area {
 	gap: 2px;
-	font-family: 'Segoe UI', sans-serif;
 	font-size: 12px;
 	color: var(--ButtonText);
 	padding-top: 2px;
 }
+
 .status-field {
 	height: 21px;
 	box-sizing: border-box;
@@ -123,6 +169,7 @@ body,
 .text-toolbar-button-group button:not(:first-child) {
 	margin-left: 0;
 }
+
 .text-toolbar-button-group button:not(:last-child) {
 	margin-right: 0;
 }
@@ -132,6 +179,7 @@ body,
 	border-top-color: var(--ButtonShadow);
 	border-left-color: var(--ButtonShadow);
 }
+
 .tool {
 	margin: 0;
 	padding: 0;
@@ -143,6 +191,7 @@ body,
 	background: transparent;
 	outline: 0;
 }
+
 .tool:before {
 	content: " ";
 	position: absolute;
@@ -156,10 +205,12 @@ body,
 	border-right: 1px solid var(--ButtonShadow);
 	border-bottom: 1px solid var(--ButtonShadow);
 }
+
 .tool:hover:active {
 	padding: 1px;
 	background: transparent !important;
 }
+
 .tool:hover:active,
 .tool.selected {
 	padding-bottom: 2px;
@@ -172,6 +223,7 @@ body,
 	border-right: 1px solid var(--ButtonHilight);
 	border-bottom: 1px solid var(--ButtonHilight);
 }
+
 .tool:hover:active:before,
 .tool.selected:before {
 	top: 0px;
@@ -183,15 +235,18 @@ body,
 	border-right: 1px solid var(--ButtonFace);
 	border-bottom: 1px solid var(--ButtonFace);
 }
+
 .tool.selected,
 .current-colors {
 	background: var(--checker);
 }
+
 .tool-icon {
 	background-image: url("../../images/classic/tools.png");
 	background-repeat: no-repeat;
 	background-position: calc(-16px * var(--icon-index)) 0;
 }
+
 .tool-icon.use-svg {
 	background-image: url("../../images/classic/tools.svg");
 	background-position: calc(-16px * (var(--icon-index) * 2 + 1)) -16px;
@@ -207,6 +262,7 @@ body,
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
+
 .color-selection {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -215,6 +271,7 @@ body,
 	border-right: 1px solid var(--ButtonShadow);
 	border-bottom: 1px solid var(--ButtonShadow);
 }
+
 .color-selection:after {
 	content: '';
 	position: absolute;
@@ -225,6 +282,7 @@ body,
 	/* @TODO: ButtonAlternateFace? */
 	border: 1px solid var(--ButtonFace);
 }
+
 .current-colors,
 .color-button {
 	border-top: 1px solid var(--ButtonShadow);
@@ -234,6 +292,7 @@ body,
 	border-bottom: 1px solid var(--ButtonFace);
 	/*box-shadow: 1px 1px 0px var(--ButtonDkShadow) inset;*/
 }
+
 .swatch:before {
 	content: '';
 	position: absolute;
@@ -242,22 +301,26 @@ body,
 	right: 0;
 	bottom: 0;
 }
+
 .color-selection:before {
 	left: 1px;
 	top: 1px;
 	right: 1px;
 	bottom: 1px;
 }
+
 .color-button:before,
 .current-colors:before,
 .swatch.pattern:before {
 	border-left: 1px solid var(--ButtonDkShadow);
 	border-top: 1px solid var(--ButtonDkShadow);
 }
+
 .swatch.pattern:before {
 	border-right: 1px solid var(--ButtonDkShadow);
 	border-bottom: 1px solid var(--ButtonDkShadow);
 }
+
 .current-colors:after,
 .color-button:after {
 	content: '';
@@ -270,8 +333,8 @@ body,
 	border-bottom: 1px solid var(--ButtonHilight);
 }
 
-.vertical > .component-area::before,
-.vertical > .component-area::after {
+.vertical>.component-area::before,
+.vertical>.component-area::after {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -279,17 +342,22 @@ body,
 	border-bottom: 1px solid var(--ButtonHilight);
 	z-index: 0;
 }
-.vertical > .component-area::before {
+
+.vertical>.component-area::before {
 	content: '';
 	top: -2px;
 }
-.vertical > .component-area:not(:empty)::after {
+
+.vertical>.component-area:not(:empty)::after {
 	content: '';
 	bottom: 0;
 }
-.vertical > .top.component-area::before {
-	top: -1px; /* hm, this is a one pixel change, and the tool buttons are supposed to be tucked in by 1px... may be related? */
+
+.vertical>.top.component-area::before {
+	top: -1px;
+	/* hm, this is a one pixel change, and the tool buttons are supposed to be tucked in by 1px... may be related? */
 }
+
 .canvas-area {
 	z-index: 1;
 }
@@ -301,39 +369,49 @@ body,
 	outline: 1px solid #ccc;
 	mix-blend-mode: difference;
 }
+
 .component-ghost:not(.dock) {
 	outline: 1px dotted #ccc;
 	mix-blend-mode: difference;
 }
+
 .component-ghost:not(.dock):after,
 .component-ghost:not(.dock):before,
 /* @TODO: thicker resize ghost (4px instead of 3px) */
 .resize-ghost.thick:after,
 .resize-ghost.thick:before {
 	content: '';
-	position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 	outline: 1px dotted #ccc;
 }
+
 .component-ghost:not(.dock):after,
 .resize-ghost.thick:after {
 	outline-offset: 1px;
 }
+
 .component-ghost:not(.dock):before,
 .resize-ghost.thick:before {
 	outline-offset: 2px;
 }
 
-.font-box .toggle:enabled > .icon {
+.font-box .toggle:enabled>.icon {
 	-webkit-mask-image: url("../../images/text-tools.png");
 	-webkit-mask-position: calc(-16px * var(--icon-index)) 0;
 	mask-image: url("../../images/text-tools.png");
 	mask-position: calc(-16px * var(--icon-index)) 0;
 	background-color: currentColor;
 }
-.font-box .toggle:disabled > .icon {
+
+.font-box .toggle:disabled>.icon {
 	background-image: url("../../images/text-tools.png");
 	background-position: calc(-16px * var(--icon-index)) 0;
-	filter: saturate(0%) opacity(50%); /* fallback */
+	filter: saturate(0%) opacity(50%);
+	/* fallback */
 	filter: url("#disabled-inset-filter-2");
 }
 
@@ -341,44 +419,53 @@ body,
 	font-size: 12px;
 	height: 15px;
 }
+
 .tool-window .window-title {
 	padding-left: 2px;
 }
+
 .tool-window .window-close-button {
 	width: 13px;
 	height: 11px;
 	background-position: 8px 0;
 }
+
 .tool-window .window-close-button:hover:active {
 	background-position: 9px 1px;
 }
+
 .tool-window .window-titlebar button {
 	margin: 2px;
 }
+
 .window-content {
-	font-family: Arial, sans-serif;
-	font-size: 16px;
+	font-size: 12px;
 	color: var(--WindowText);
 }
 
 .help-window .item {
-	font-family: 'Segoe UI', sans-serif;
 	font-size: 12px;
 	padding: 0 2px;
-	position: relative; /* for ::after */
+	position: relative;
+	/* for ::after */
 }
+
 .help-window .item:hover {
 	text-decoration: underline;
 	color: #0000FF;
 	cursor: pointer;
 }
+
 .help-window li:before {
 	background-image: url("../../images/help-icons.png");
 }
+
 .help-window:not(.focused) .item.selected {
 	background-color: var(--ButtonFace);
-	color: var(--ButtonText); /* ?? */
+	color: var(--ButtonText);
+	/* ?? */
 }
+
 .help-window.focused .item.selected {
 	background-color: var(--Hilight);
 	color: var(--HilightText);
@@ -386,6 +473,7 @@ body,
 	outline: 1px dotted black;
 	outline-offset: -1px;
 }
+
 /* @TODO: separate focus state of the item; while mouse down, the main highlight does not move with the arrow keys but this does, among other differences */
 /* .help-window.focused .item.selected::after {
 	content: "";
@@ -406,12 +494,15 @@ body,
 .magnification-option {
 	background-image: url("../../images/options-magnification.png");
 }
+
 .magnification-option.use-svg {
 	background-image: url("../../images/options-magnification.svg");
 }
+
 .transparent-mode-option {
 	background-image: url("../../images/classic/options-transparency.png");
 }
+
 .transparent-mode-option.use-svg {
 	background-image: url("../../images/classic/options-transparency.svg");
 }
@@ -419,9 +510,11 @@ body,
 .eye-gaze-mode .eye-gaze-mode-undo-button .button-icon {
 	background: url(../../images/classic/undo.svg);
 }
+
 .eye-gaze-mode .toggle-dwell-clicking .button-icon {
 	background: url(../../images/classic/eye-gaze-pause.svg);
 }
+
 .eye-gaze-mode.eye-gaze-mode-paused .toggle-dwell-clicking .button-icon {
 	background: url(../../images/classic/eye-gaze-unpause.svg);
 }
@@ -431,11 +524,13 @@ input[type=url]:not(.inset-deep),
 input[type=number]:not(.inset-deep) {
 	border: 1px solid gray;
 }
+
 input[type=text],
 input[type=url],
 input[type=search],
 input[type=number],
-input[type=text].inset-deep, /* overriding background */
+input[type=text].inset-deep,
+/* overriding background */
 input[type=url].inset-deep,
 input[type=search].inset-deep,
 input[type=number].inset-deep,
@@ -468,11 +563,12 @@ input[type=number].no-spinner::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
+
 input[type=number].no-spinner {
 	-moz-appearance: textfield;
 }
 
-input:disabled + label {
+input:disabled+label {
 	color: var(--GrayText);
 }
 
@@ -494,10 +590,12 @@ select.inset-deep {
 	height: 21px;
 	outline: none;
 }
+
 select.inset-deep:focus:not(:active) {
 	color: var(--HilightText);
 	background-color: var(--Hilight);
 }
+
 select.inset-deep option {
 	background-color: var(--Window);
 	color: var(--WindowText);
@@ -520,29 +618,35 @@ progress[value].inset-deep {
 	background-color: var(--ButtonFace);
 	position: relative;
 }
-progress[value].inset-deep::-webkit-progress-value { 
+
+progress[value].inset-deep::-webkit-progress-value {
 	background: var(--Hilight);
 }
-progress[value].inset-deep::-moz-progress-bar { 
+
+progress[value].inset-deep::-moz-progress-bar {
 	background: var(--Hilight);
 }
 
 summary {
 	padding: 0;
 }
+
 summary:focus {
 	outline: 1px dotted var(--ButtonText);
 }
-summary:hover > span {
+
+summary:hover>span {
 	text-decoration: underline;
 	color: #0000FF;
 }
+
 summary::marker {
 	color: var(--ButtonText);
 	content: "►";
 	text-decoration: none;
 }
-details[open] > summary::marker {
+
+details[open]>summary::marker {
 	color: var(--ButtonText);
 	content: "▼";
 	text-decoration: none;
